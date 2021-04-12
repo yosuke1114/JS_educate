@@ -132,7 +132,8 @@ for (const input of inputarray){
 console.log(`${array2}`);
 //indexOf 配列ない検索インデックスを戻り値に
 console.log(inputarray.indexOf(15));
-
+//配列をスライス
+console.log(inputarray.slice(1,3));
 
 // colorプロパティを持つオブジェクトの配列
 const colors = [
@@ -149,10 +150,24 @@ console.log(indexOfBlue); // => 2
 console.log(colors[indexOfBlue]); // => { "color": "blue" }
 console.log(Object.keys(colors[indexOfBlue])); // => { "blue" }
 console.log(Object.values(colors[indexOfBlue])); // => { "blue" }
+//includesを使うほうがいい
+const array_includes =["red","blue","yellow"];
+console.log(array_includes.includes("blue"));//true
 
-
-
-
+//push ,pop , concat ,unshift,shift 
+console.log(array_includes.push("black")); //push
+console.log(array_includes)
+console.log(array_includes.pop("black"));//pop
+console.log(array_includes);
+console.log(array_includes.concat(colors));//concat
+console.log(array_includes);
+console.log(array_includes.unshift("UNSHIFT"));//unshift
+console.log(array_includes);
+console.log(array_includes.shift());//shift
+console.log(array_includes);
+//spred
+const sp_array = ["X",...array_includes]
+console.log(sp_array);
 //
 function reducer(total, value){
     return total += value;
@@ -163,8 +178,6 @@ let reduce_test = (array1.reduce(reducer,0));
 console.log(reduce_test);
 
 
-
-
-
-
-//
+//文字列操作
+let string_A ="文・字・列・操・作".split("・");
+console.log(string_A);
