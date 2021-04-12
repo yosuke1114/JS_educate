@@ -15,17 +15,51 @@ console.log(typeof ["配列"]); // => "object"
 console.log(typeof { "key": "value" }); // => "object"
 console.log(typeof function() {}); // => "function"
 //オブジェクトリテラル
+const keyZ = "constKey";
 const obj = {
     key:"ob1",
     key1:"obj2",
+    [keyZ]:"constobj",
+    keyX:{
+        subkey1:"sub1",
+    },
 }
-//ドット記法
 console.log(obj.key);
 //ブラケット記法
 console.log(obj["key1"]);
 //変数を使用してブラケット記法
 let v1 = "key";
 console.log(obj[v1]);
+//オブジェクトへの追加
+obj.key2 = "obj3";
+console.log(obj["key2"]);
+//
+console.log(obj[keyZ]);
+// ?.を使用-> プロパティが存在しないとき、TypeError でなくundefinedになる
+console.log(obj?.keyX?.subkey1);
+console.log(obj?.keyX?.subkey2);
+//オブジェクトの参照方法
+console.log(Object.keys(obj));//key を表示
+console.log(Object.values(obj)); //value　を表示
+console.log(Object.entries(obj));//key,valueの配列を返す
+//foreach
+const keys = Object.keys(obj);
+keys.forEach(key => {console.log(key);});
+const vals = Object.values(obj);
+vals.forEach(val => {console.log(val);});
+
+//objectのmerge
+const objA = {
+    "test1":123,
+    "key":345,
+}
+const merged_Obj = Object.assign({},obj,objA);
+console.log(merged_Obj);
+
+//object の複製
+const copied_Obj = Object.assign({},merged_Obj);
+console.log(copied_Obj);
+
 
 //if文
 
@@ -60,6 +94,26 @@ for(let i = 0; i<10; i++){
 
 
 //配列
+//配列内配列
+let arraryInarray = [
+    [1,2],
+    [3,4],
+]
+arraryInarray.forEach(
+    ar => {
+        //return console.log(ar);
+        ar.forEach(
+            a => {
+                return console.log(a);
+            }
+        );
+    }
+);
+
+//配列 OR Object
+console.log(Array.isArray(arraryInarray));
+console.log(Array.isArray(objA));
+
 //someを使用した
 let array = [1,11,21];
 function isEven(num) {
@@ -76,6 +130,27 @@ for (const input of inputarray){
     }
 }
 console.log(`${array2}`);
+//indexOf 配列ない検索インデックスを戻り値に
+console.log(inputarray.indexOf(15));
+
+
+// colorプロパティを持つオブジェクトの配列
+const colors = [
+    { "color": "red" },
+    { "color": "green" },
+    { "color": "blue" }
+];
+// `color`プロパティが"blue"のオブジェクトのインデックスを取得
+const indexOfBlue = colors.findIndex((obj) => {
+    console.log(obj);
+    return obj.color === "blue";
+});
+console.log(indexOfBlue); // => 2
+console.log(colors[indexOfBlue]); // => { "color": "blue" }
+console.log(Object.keys(colors[indexOfBlue])); // => { "blue" }
+console.log(Object.values(colors[indexOfBlue])); // => { "blue" }
+
+
 
 
 //
@@ -86,3 +161,10 @@ const array1 =[1,10,100];
 
 let reduce_test = (array1.reduce(reducer,0));
 console.log(reduce_test);
+
+
+
+
+
+
+//
