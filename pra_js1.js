@@ -238,7 +238,13 @@ while (matches = alphabetsPattern.exec(str)) {
 
 //正規表現
 const A_pattern = /A+/;
+const a_pattern = /a+/;
 console.log(A_pattern.exec(str));
 console.log((str.search(A_pattern)));
 console.log((str.match(A_pattern)));
+
+const strLC = str.toLowerCase();
+console.log(strLC);
+console.log(a_pattern.exec(strLC));
+
 
