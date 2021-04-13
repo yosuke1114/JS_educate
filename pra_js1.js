@@ -14,6 +14,8 @@ console.log(typeof null); // => "object"
 console.log(typeof ["配列"]); // => "object"
 console.log(typeof { "key": "value" }); // => "object"
 console.log(typeof function() {}); // => "function"
+
+
 //オブジェクトリテラル
 const keyZ = "constKey";
 const obj = {
@@ -165,10 +167,10 @@ console.log(array_includes.unshift("UNSHIFT"));//unshift
 console.log(array_includes);
 console.log(array_includes.shift());//shift
 console.log(array_includes);
-//spred
+//spread
 const sp_array = ["X",...array_includes]
 console.log(sp_array);
-//
+//reduce
 function reducer(total, value){
     return total += value;
 }
@@ -177,7 +179,66 @@ const array1 =[1,10,100];
 let reduce_test = (array1.reduce(reducer,0));
 console.log(reduce_test);
 
+//map
+const  array_M =[1,2,3,4,5] ;
+const newArray = array_M.map((currentValue, index, array) => {
+    return currentValue * 10;
+});
+console.log(newArray);
 
-//文字列操作
+//filter 
+const  array_F =[1,2,3,4,5] ;
+const newArray_F = array_F.filter((currentValue ) => {return currentValue % 2 == 0;} );
+console.log(newArray_F);
+
+//文字列操作_split
 let string_A ="文・字・列・操・作".split("・");
 console.log(string_A);
+//文字列操作_join
+console.log(string_A.join(","));
+let string_B="A B  C   D    E"
+console.log(string_B.split(/\s+/));
+
+
+//文字列検索
+const str = "ABC あいう DE えお";
+const alphabetPattern = /[a-zA-Z]+/g;
+const resultsWithG = str.match(alphabetPattern);
+console.log(resultsWithG);
+const resultsWithGALL = str.matchAll(alphabetPattern);
+for (const match of resultsWithGALL) {
+    // マッチした要素ごとの情報を含んでいる
+    console.log(`match: "${match[0]}", index: ${match.index}, input: "${match.input}"`);
+}
+// "ECMAScript (数字+)"にマッチするが、欲しい文字列は数字の部分のみ
+const pattern = /ECMAScript (\d+) (\d+)/;
+// 返り値は0番目がマッチした全体、1番目がキャプチャの1番目というように対応している
+// [マッチした全部の文字列, キャプチャの1番目, キャプチャの2番目 ....]
+const [all, capture1, capture2] = "ECMAScript 6 4".match(pattern);
+console.log(all); // => "ECMAScript 6"
+console.log(capture1); // => "6"
+console.log(capture2); 
+
+const pattern_a = /ES(\d+)/g;
+// iteratorを返す
+const matchesIterator = "ES2015、ES2016、ES2017".matchAll(pattern_a);
+console.log(matchesIterator);
+for (const match of matchesIterator) {
+    // マッチした要素ごとの情報を含んでいる
+    // 0番目はマッチした文字列全体、1番目がキャプチャの1番目である数字
+    console.log(`match: "${match[0]}", capture1: ${match[1]}, index: ${match.index}, input: "${match.input}"`);
+}
+//exec
+const alphabetsPattern = /[a-zA-Z]+/g;
+let matches;
+while (matches = alphabetsPattern.exec(str)) {
+    // `RegExp#exec`メソッドの返り値は`index`プロパティなどを含む特殊な配列
+    console.log(`match: ${matches[0]}, index: ${matches.index}, lastIndex: ${alphabetsPattern.lastIndex}`);
+}
+
+//正規表現
+const A_pattern = /A+/;
+console.log(A_pattern.exec(str));
+console.log((str.search(A_pattern)));
+console.log((str.match(A_pattern)));
+
