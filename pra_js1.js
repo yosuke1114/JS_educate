@@ -58,6 +58,10 @@ const objA = {
 const merged_Obj = Object.assign({},obj,objA);
 console.log(merged_Obj);
 
+const merged_Obj_sp = {...obj,...objA};
+console.log(merged_Obj_sp);
+
+
 //object の複製
 const copied_Obj = Object.assign({},merged_Obj);
 console.log(copied_Obj);
@@ -248,3 +252,5 @@ console.log(strLC);
 console.log(a_pattern.exec(strLC));
 
 
+console.trace();
+console.error();
