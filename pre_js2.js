@@ -1,17 +1,14 @@
 function listAllProperties(o) {
 	var objectToInspect;
 	var result = [];
-
 	for(objectToInspect = o; objectToInspect !== null;
            objectToInspect = Object.getPrototypeOf(objectToInspect)) {
         result = result.concat(
             Object.getOwnPropertyNames(objectToInspect)
         );
     }
-
 	return result;
 }
-
 let s = "aaa";
 console.log( listAllProperties(s) );
 
@@ -55,6 +52,10 @@ countdown(2).then(
     }
 
 )
+//async / await 
+
+
+
 
 //method this -> that
 const obj = {
@@ -178,8 +179,10 @@ class MyAllay extends Array{
     }
 }
 const my_allay = new MyAllay(1,2,3);
+const my_dummy_array = new MyAllay();
 console.log(my_allay.first); 
 console.log(my_allay.last); 
+
 
 
 //例外処理
@@ -196,3 +199,33 @@ try {
 } finally{
     console.log("finally開始");
 }
+
+console.log(my_dummy_array.first); 
+
+console.log( Object.getPrototypeOf(my_dummy_array));
+
+
+class My_string extends String{
+    constructor(x){
+        super(x);
+        this.x = x;
+    }
+    get value(){
+        return this.x ;
+    }
+
+    set value(str){
+        this.x = str;
+        return this.x;
+    }
+    get_length(){
+        return console.log(this.x.length);
+    }
+}
+const my_string = new My_string("namae");
+
+console.log( Object.getPrototypeOf(my_string));
+my_string.value = "aaaa";
+
+console.log(my_string.value);
+my_string.get_length();
