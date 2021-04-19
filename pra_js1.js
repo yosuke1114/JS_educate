@@ -272,3 +272,4 @@ function listAllProperties(o) {
 
 
 console.log(listAllProperties(strLC) ); 
+
