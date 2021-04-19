@@ -180,3 +180,19 @@ class MyAllay extends Array{
 const my_allay = new MyAllay(1,2,3);
 console.log(my_allay.first); 
 console.log(my_allay.last); 
+
+
+//例外処理
+try {
+    console.log("try開始");
+    let x = false;
+    if(!x){
+        throw(new Error ("エラーですよ"));
+    }
+} catch (error) {
+    console.log(error.message);
+
+    
+} finally{
+    console.log("finally開始");
+}
