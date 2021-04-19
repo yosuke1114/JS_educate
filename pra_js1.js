@@ -180,7 +180,7 @@ function reducer(total, value){
 }
 const array1 =[1,10,100];
 
-let reduce_test = (array1.reduce(reducer,0));
+let reduce_test = (array1.reduce(reducer, 0));
 console.log(reduce_test);
 
 //map
@@ -191,7 +191,7 @@ const newArray = array_M.map((currentValue, index, array) => {
 console.log(newArray);
 
 //filter 
-const  array_F =[1,2,3,4,5] ;
+const  array_F =[1, 2, 3, 4, 5] ;
 const newArray_F = array_F.filter((currentValue ) => {return currentValue % 2 == 0;} );
 console.log(newArray_F);
 
