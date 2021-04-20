@@ -229,3 +229,15 @@ my_string.value = "aaaa";
 
 console.log(my_string.value);
 my_string.get_length();
+
+//map
+
+//set
+
+//date
+
+//math
+
+//json
+
+
