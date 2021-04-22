@@ -1,4 +1,11 @@
 console.log("index.js: loaded");
 import { App } from "./src/App.js";
 const app = new App();
-app.mount();
+window.addEventListener("load", () => {
+    app.mount();
+});
+// ページがアンロードされたときのイベント
+window.addEventListener("unload", () => {
+    app.unmount();
+});
+
