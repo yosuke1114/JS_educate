@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        
+      {
+        "name": "Launch Chrome against localhost, with sourcemaps",
+        "type": "chrome",
+        "request": "launch",
+  
+        // 開発用webサーバのurlを指定
+        "url": "http://localhost:5500",
+        //"file": "${file}",
+        "sourceMaps": true,
+        "webRoot": "${workspaceRoot}"
+      },
+      {
+        "name": "Attach to Chrome, with sourcemaps",
+        "type": "chrome",
+        "request": "attach",
+        "port": 9222,
+        "sourceMaps": true,
+        "webRoot": "${workspaceRoot}"
+      }
+    ]
+  }
